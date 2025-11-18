@@ -90,7 +90,6 @@ export const Projects = () => {
               title={proj.name}
               desc={proj.description}
               github={proj.github_link}
-              demo={proj.demo}
               tech={proj.tech}
             />
           ))}
