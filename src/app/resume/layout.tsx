@@ -3,30 +3,30 @@ import { resumeKeywords } from "@/constant";
 import { generateResumeStructuredData } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
-  title: "Resume - Aarab Nishchal",
+  title: "Resume - Kartik Maheshwari",
   description:
-    "View and download Aarab Nishchal's professional resume. Student developer with expertise in React, Next.js, and full-stack development.",
+    "View and download Kartik Maheshwari's professional resume. Student software developer with expertise in Kotling, Java, C++, mobile, networking and ML development.",
   keywords: resumeKeywords,
   openGraph: {
-    title: "Resume - Aarab Nishchal",
+    title: "Resume - Kartik Maheshwari",
     description:
-      "View and download Aarab Nishchal's professional resume featuring his experience and skills as a student developer.",
-    url: "https://aarab.vercel.app/resume",
-    siteName: "Aarab Nishchal",
+      "View and download Kartik Maheshwari's professional resume featuring his experience and skills as a student developer.",
+    url: "https://localhost:3000/resume", // chagne the url 
+    siteName: "Kartik Maheshwari",
     images: [
       {
         url: "/images/thumbnail.png",
         width: 1200,
         height: 630,
-        alt: "Aarab Nishchal Resume",
+        alt: "Kartik Maheshwari Resume",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Resume - Aarab Nishchal",
+    title: "Resume - Kartik Maheshwari",
     description:
-      "View Aarab Nishchal's professional resume and experience as a student developer.",
+      "View Kartik Maheshwari's professional resume and experience as a student developer.",
     images: ["/images/thumbnail.png"],
   },
 };
@@ -43,7 +43,7 @@ export default function ResumeLayout({
       {/* Preload the PDF for better performance */}
       <link
         rel="preload"
-        href="/docs/Aarab_Nishchal_Resume.pdf"
+        href="/docs/Kartik_Maheshwari_Resume.pdf"
         as="document"
         type="application/pdf"
       />

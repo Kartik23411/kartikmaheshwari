@@ -16,24 +16,24 @@ import {
 } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
-  applicationName: "Aarab Nishchal",
-  title: "Aarab Nishchal",
+  applicationName: "Kartik Maheshwari",
+  title: "Kartik Maheshwari",
   description:
-    "Aarab Nishchal is a student developer passionate about building modern web apps with Next.js, React, and open-source tools. Explore his projects, experiments, and developer portfolio.",
+    "Kartik Maheshwari is a student developer passionate about building modern web apps with Next.js, React, and open-source tools. Explore his projects, experiments, and developer portfolio.",
   authors: [
     {
-      name: "Aarab Nishchal",
-      url: "https://aarab.vercel.app",
+      name: "Kartik Maheshwari",
+      url: "https://localhost:3000", // TODO add the url
     },
   ],
-  creator: "Aarab Nishchal",
+  creator: "Kartik Maheshwari ",
   referrer: "origin-when-cross-origin",
   keywords: keywords,
-  metadataBase: new URL("https://aarab.vercel.app"),
+  metadataBase: new URL("https://localhost:3000"), // TODO add the url
 
   // SEO Enhancements
   alternates: {
-    canonical: "https://aarab.vercel.app",
+    canonical: "https://localhost:3000", // add the url
   },
   icons: {
     icon: [
@@ -63,17 +63,17 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
 
   openGraph: {
-    title: "Aarab Nishchal",
+    title: "Kartik Maheshwari",
     description:
-      "Explore Aarab Nishchal’s portfolio featuring projects in React, Next.js, AI, and developer tools. Discover a world of creative web applications and open-source experiments.",
-    url: "https://aarab.vercel.app",
-    siteName: "Aarab Nishchal",
+      "Explore Kartik Maheshwari ’s portfolio featuring projects in Mobile, Kotlin, AI, and Network tools. Discover a world of creative web applications and open-source experiments.",
+    url: "", // TODO add the url
+    siteName: "Kartik Maheshwari ",
     images: [
       {
         url: "/images/thumbnail.png",
         width: 1200,
         height: 630,
-        alt: "Aarab Nishchal Portfolio Thumbnail",
+        alt: "Kartik Maheshwari Portfolio Thumbnail",
       },
     ],
     locale: "en_US",
@@ -82,11 +82,11 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Aarab Nishchal",
+    title: "Kartik Maheshwari",
     description:
-      "Check out Aarab Nishchal’s personal portfolio and dev projects using Next.js, React, Tailwind, and modern web tech.",
+      "Check out Kartik Maheshwari’s personal portfolio and dev projects using Next.js, React, Tailwind, and modern web tech.",
     images: ["/images/thumbnail.png"],
-    creator: "@aarab_ii",
+    creator: "@Kartik Maheshwari",
   },
 };
 

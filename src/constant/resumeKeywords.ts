@@ -1,8 +1,8 @@
 export const resumeKeywords = [
   // Personal Branding
-  "Aarab Nishchal",
-  "Aarab Nishchal resume",
-  "Aarab Nishchal CV",
+  "Kartik Maheshwari",
+  "Kartik Maheshwari resume",
+  "Kartik Maheshwari CV",
   "Software Developer",
   "Full Stack Developer",
   "Frontend Developer",

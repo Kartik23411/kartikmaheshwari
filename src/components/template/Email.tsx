@@ -46,11 +46,6 @@ export function EmailTemplate({
       url: `https://instagram.com/${selfData.socials_username.instagram}`,
       icon: "https://cdn-icons-png.flaticon.com/512/2111/2111463.png",
     },
-    {
-      name: "X",
-      url: `https://x.com/${selfData.socials_username.twitter}`,
-      icon: "https://cdn-icons-png.flaticon.com/512/5968/5968830.png",
-    },
   ];
 
   return (
@@ -69,7 +64,7 @@ export function EmailTemplate({
                 />
               </Column>
               <Column>
-                <Text style={brandText}>Aarab Nishchal</Text>
+                <Text style={brandText}>Kartik Maheshwari</Text>
               </Column>
             </Row>
           </Section>

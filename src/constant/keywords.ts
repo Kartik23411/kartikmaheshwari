@@ -3,7 +3,7 @@ export const keywords = [
   "Kartik",
   "Maheshwari",
   "Kartik23411", // GitHub username
-  "aarab.vercel.app", // Portfolio URL
+  "localhost:3000", // Portfolio URL
   "contact.mkartik@gmail.com", // Email for search
   "linkedin/in/kartik411", // LinkedIn profile
   "Kartik Maheshwari portfolio",

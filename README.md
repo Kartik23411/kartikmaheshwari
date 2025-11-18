@@ -1,4 +1,4 @@
-# 🌟 Aarab Nishchal's Portfolio
+# 🌟 Kartik Maheshwari's Portfolio
 
 <div align="center">
 
@@ -28,13 +28,6 @@
 - [🔗 Connect](#-connect)
 
 ---
-
-## 🎯 Overview
-
-A modern, responsive portfolio website built with **Next.js 15** and **React 19**, featuring stunning dark aesthetics and smooth animations. This project showcases advanced web development practices with a focus on performance, accessibility, and user experience.
-
-**🌐 Live Demo:** [aarab.vercel.app](https://aarab.vercel.app)
-**📱 GitHub:** [github.com/aarabii/An](https://github.com/aarabii/An)
 
 ## ✨ Features
 
@@ -129,7 +122,7 @@ A modern, responsive portfolio website built with **Next.js 15** and **React 19*
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/aarabii/An.git
+   git clone https://github.com/kartik23411/An.git
    cd An
    ```
 
@@ -163,28 +156,6 @@ A modern, responsive portfolio website built with **Next.js 15** and **React 19*
 | `npm run start` | Start production server                 |
 | `npm run lint`  | Run ESLint checks                       |
 
-## ⚙️ Customization
-
-### **Personal Information**
-
-```typescript
-// src/constant/self.ts
-export const selfData = {
-  name: "Your Name",
-  jobTitle: "Your Title",
-  email: "your.email@domain.com",
-  // ... update all personal details
-};
-```
-
-### **Projects & Experience**
-
-| File                          | Purpose                |
-| ----------------------------- | ---------------------- |
-| `src/constant/projects.ts`    | Your project portfolio |
-| `src/constant/experience.ts`  | Work experience data   |
-| `src/constant/skillsData.tsx` | Technical skills       |
-
 ### **Assets**
 
 | Asset Type          | Location                   | Description         |
@@ -194,42 +165,4 @@ export const selfData = {
 | **Resume**          | `public/docs/`             | PDF resume file     |
 | **Fonts**           | `src/assets/fonts/`        | Custom font files   |
 
-### **Styling**
 
-- **Colors:** Modify CSS custom properties in `src/app/globals.css`
-- **Fonts:** Update font configurations in `src/app/fonts.ts`
-- **Components:** Customize UI components in `src/components/ui/`
-
-## 📸 Screenshots
-
-> 🌟 **Dark Luxury Theme** - Experience the stunning dark aesthetics with purple accents
->
-> 🚀 **Lightning Fast** - Next.js 15 with Turbopack for optimal performance
->
-> 📱 **Fully Responsive** - Perfect on every device and screen size
-
-## 🔗 Connect
-
-<div align="center">
-
-| Platform         | Username                                                    | Link                         |
-| ---------------- | ----------------------------------------------------------- | ---------------------------- |
-| 🐙 **GitHub**    | [@aarabii](https://github.com/aarabii)                      | `https://github.com/aarabii` |
-| 💼 **LinkedIn**  | [Aarab Nishchal](https://linkedin.com/in/aarab-nishchal)    | Professional Network         |
-| 📸 **Instagram** | [@aarab.ii](https://instagram.com/aarab.ii)                 | Creative Updates             |
-| 🐦 **Twitter**   | [@aarab_ii](https://twitter.com/aarab_ii)                   | Tech Thoughts                |
-| 📧 **Email**     | [aarab.nishchal@gmail.com](mailto:aarab.nishchal@gmail.com) | Direct Contact               |
-
-</div>
-
----
-
-<div align="center">
-
-**Built with ❤️ by [Aarab Nishchal](https://aarab.vercel.app)**
-
-_Student Developer | Chief Problem Solver | Solution Sorcerer_
-
-[![Portfolio](https://img.shields.io/badge/Portfolio-aarab.vercel.app-9333ea?style=for-the-badge)](https://aarab.vercel.app)
-
-</div>
