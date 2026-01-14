@@ -23,84 +23,83 @@ export const Background = () => {
       const width = canvas.width;
       const height = canvas.height;
 
-      // Fill background with dark color
-      ctx.fillStyle = "#0a0a0f";
+      // Fill background with dark red-orangish color
+      ctx.fillStyle = "#1a0805";
       ctx.fillRect(0, 0, width, height);
 
-      // Triangle size
-      const size = 150;
-      const cols = Math.ceil(width / size) + 1;
-      const rows = Math.ceil(height / size) + 1;
+      // Grid size
+      const gridSize = 20;
 
-      // Draw triangular pattern
-      for (let row = 0; row < rows; row++) {
-        for (let col = 0; col < cols; col++) {
-          const x = col * size;
-          const y = row * size;
+      // Draw line shadows with green glow
+      ctx.strokeStyle = "#ff9100ff";
+      ctx.lineWidth = .05;
+      ctx.globalAlpha = 0.4;
 
-          // Random variations for visual interest
-          const shade = Math.random() * 30 + 20;
-          const opacity = Math.random() * 0.3 + 0.1;
-
-          // Draw main triangles
-          drawTriangle(ctx, x, y, size, shade, opacity);
-          drawTriangle(ctx, x + size / 2, y + size / 2, size / 2, shade + 10, opacity * 0.8);
-        }
+      for (let x = 0; x <= width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+        ctx.stroke();
       }
 
-      // Add subtle overlay gradient
+      for (let y = 0; y <= height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
+      }
+
+      // Draw white lines on top
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 0.08;
+      ctx.globalAlpha = 0.2;
+
+      for (let x = 0; x <= width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+        ctx.stroke();
+      }
+
+      for (let y = 0; y <= height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
+      }
+
+      ctx.globalAlpha = 1;
+
+      // Add subtle radial gradient for depth
       const gradient = ctx.createRadialGradient(
         width / 2,
         height / 2,
         0,
         width / 2,
         height / 2,
-        Math.max(width, height) / 2
+        Math.max(width, height) / 1.5
       );
-      gradient.addColorStop(0, "rgba(29, 78, 216, 0.05)");
-      gradient.addColorStop(0.5, "rgba(99, 102, 241, 0.02)");
+      gradient.addColorStop(0, "rgba(255, 100, 50, 0.08)");
+      gradient.addColorStop(0.7, "rgba(0, 0, 0, 0)");
       gradient.addColorStop(1, "rgba(0, 0, 0, 0.2)");
 
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
-    };
 
-    const drawTriangle = (
-      ctx: CanvasRenderingContext2D,
-      x: number,
-      y: number,
-      size: number,
-      shade: number,
-      opacity: number
-    ) => {
-      const halfSize = size / 2;
+      // Add vignette effect for eye focus
+      const vignetteGradient = ctx.createRadialGradient(
+        width / 2,
+        height / 2,
+        Math.max(width, height) * 0.4,
+        width / 2,
+        height / 2,
+        Math.max(width, height) * 0.9
+      );
+      vignetteGradient.addColorStop(0, "rgba(0, 0, 0, 0)");
+      vignetteGradient.addColorStop(1, "rgba(0, 0, 0, 0.3)");
 
-      // Random rotation for variety
-      const rotation = Math.floor(Math.random() * 4) * 90;
-      const centerX = x + halfSize;
-      const centerY = y + halfSize;
-
-      ctx.save();
-      ctx.translate(centerX, centerY);
-      ctx.rotate((rotation * Math.PI) / 180);
-      ctx.translate(-centerX, -centerY);
-
-      // Draw filled triangle
-      ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.lineTo(x + size, y);
-      ctx.lineTo(x + halfSize, y + size);
-      ctx.closePath();
-
-      ctx.fillStyle = `rgba(${shade}, ${shade}, ${shade + 10}, ${opacity})`;
-      ctx.fill();
-
-      // Draw triangle outline
-      ctx.strokeStyle = `rgba(${shade + 30}, ${shade + 30}, ${shade + 40}, ${opacity * 1.5})`;
-      ctx.lineWidth = 1;
-      ctx.stroke();
-
-      ctx.restore();
+      ctx.fillStyle = vignetteGradient;
+      ctx.fillRect(0, 0, width, height);
     };
 
     setCanvasSize();
@@ -111,46 +110,16 @@ export const Background = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const handleMouseEnter = () => {
-      // Future: Add mouse interaction animations
-    };
-
-    const handleMouseLeave = () => {
-      // Future: Add mouse interaction animations
-    };
-
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener("mouseenter", handleMouseEnter);
-      container.addEventListener("mouseleave", handleMouseLeave);
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener("mouseenter", handleMouseEnter);
-        container.removeEventListener("mouseleave", handleMouseLeave);
-      }
-    };
-  }, []);
-
   return (
     <div
       ref={containerRef}
-      className="top-0 fixed -z-10 h-full w-full overflow-hidden bg-[#0a0a0f]"
+      className="top-0 fixed -z-10 h-full w-full overflow-hidden bg-[#1a0805]"
     >
-      {/* Canvas for geometric pattern */}
+      {/* Canvas for grid pattern */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
-        style={{ opacity: 0.8 }}
       />
-
-      {/* Subtle animated gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-transparent to-purple-950/20 animate-pulse" style={{ animationDuration: '8s' }} />
-
-      {/* Optional: Add a vignette effect */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
     </div>
   );
 };
