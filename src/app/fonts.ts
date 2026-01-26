@@ -1,4 +1,4 @@
-import { Inter, Cutive_Mono } from "next/font/google";
+import { Inter, Cutive_Mono, Oleo_Script } from "next/font/google";
 import localFont from "next/font/local";
 
 // Inter for all paragraph text and body content
@@ -40,5 +40,13 @@ export const quentine = localFont({
     },
   ],
   variable: "--font-quentine",
+  display: "swap",
+});
+
+// Felipa from Google Fonts for my name
+export const felipa = Oleo_Script({
+  variable: "--font-felipa",
+  subsets: ["latin"],
+  weight: "700",
   display: "swap",
 });

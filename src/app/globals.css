@@ -27,16 +27,16 @@ body {
     /* Primary Colors - Refined platinum with dark contrast */
     --primary: 220 15% 88%;
     --primary-foreground: 245 30% 8%;
-    --secondary: 275 60% 45%;
-    --secondary-foreground: 275 10% 95%;
+    --secondary: 120 100% 50%;
+    --secondary-foreground: 120 10% 95%;
 
     /* Muted & Neutral Colors - Deep grays with purple undertones */
     --muted: 240 18% 6%;
     --muted-foreground: 220 12% 65%;
 
-    /* Accent Colors - Rich amethyst */
-    --accent: 275 70% 55%;
-    --accent-foreground: 275 15% 95%;
+    /* Accent Colors - Bright neon green */
+    --accent: 120 100% 50%;
+    --accent-foreground: 120 15% 95%;
 
     /* Destructive Colors - Deep crimson */
     --destructive: 0 70% 45%;
@@ -122,8 +122,8 @@ body {
 
     /* Enhanced Dark Hover States */
     --hover-primary: 220 20% 92%;
-    --hover-secondary: 275 65% 50%;
-    --hover-accent: 275 75% 60%;
+    --hover-secondary: 120 100% 55%;
+    --hover-accent: 120 100% 60%;
 
     /* Dark Premium Typography Effects */
     --text-glow: 0px 0px 16px hsl(275 60% 60% / 0.5);
@@ -164,8 +164,8 @@ body {
     --gunmetal: 240 15% 15%;
 
     /* Neon Accent for High Contrast Elements */
-    --neon-purple: 275 100% 70%;
-    --neon-glow: 0px 0px 20px hsl(275 100% 70% / 0.6);
+    --neon-green: 120 100% 50%;
+    --neon-glow: 0px 0px 20px hsl(120 100% 50% / 0.6);
 
     /* Dark Mode Specific Enhancements */
     --card-hover: 245 22% 4%;

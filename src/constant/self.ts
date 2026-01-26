@@ -16,7 +16,7 @@ export const selfData = {
   },
   email: "contact.mkartik@gmail.com",
   roles: [
-    "Aspiring Software Engineer",
+    "Software Engineer",
     "Tech Enthusiast",
     "ML Enthusiast",
     "Android Developer",
