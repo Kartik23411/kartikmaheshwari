@@ -72,90 +72,37 @@ export const About = () => {
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 overflow-x-hidden">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Profile Image Section */}
+        {/* Centered Title */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{
+            duration: 0.6,
+            delay: 0.2,
+            ease: "easeOut",
+          }}
+        >
+          <h2
+            className={`${nasalization.className} text-4xl md:text-5xl font-bold relative`}
+            style={{ color: "hsl(var(--primary))" }}
+          >
+            About Me
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+          {/* Left Half: Text Content */}
           <motion.div
-            className="flex justify-center md:justify-start"
+            className="space-y-8"
             initial={{ opacity: 0, x: -60 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
             transition={{
               duration: 0.7,
+              delay: 0.4,
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
           >
-            <motion.div
-              className="relative group"
-              whileHover={{
-                scale: 1.02,
-                y: -4,
-                transition: {
-                  duration: 0.3,
-                  type: "spring" as const,
-                  stiffness: 400,
-                  damping: 25,
-                },
-              }}
-            >
-              {/* Enhanced Image Container with Glass Effect and B&W to Color Hover */}
-              <div
-                className="w-full max-w-md h-80 rounded-2xl overflow-hidden relative glass-card border-2 group/image"
-                style={{ borderColor: "hsl(var(--glass-border))" }}
-              >
-                {/* Profile Image with B&W to Color Effect */}
-                <motion.div
-                  initial={{ scale: 1.1, opacity: 0 }}
-                  animate={
-                    isInView
-                      ? { scale: 1, opacity: 1 }
-                      : { scale: 1.1, opacity: 0 }
-                  }
-                  transition={{ duration: 0.7, delay: 0.3 }}
-                  className="relative w-full h-full"
-                >
-                  <Image
-                    src={"/images/me.png"}
-                    alt="Profile Picture"
-                    width={384}
-                    height={320}
-                    className="w-full h-full object-cover transition-all duration-700 ease-in-out filter grayscale group-hover/image:grayscale-0 group-hover/image:scale-105"
-                  />
-                  
-                  {/* Subtle overlay for enhanced effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/5 opacity-0 group-hover/image:opacity-100 transition-opacity duration-700" />
-                </motion.div>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Enhanced Content Section */}
-          <motion.div
-            className="space-y-8"
-            initial={{ opacity: 0, x: 60 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }}
-            transition={{
-              duration: 0.7,
-              delay: 0.2,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-          >
-            {/* Enhanced Title */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.4,
-                ease: "easeOut",
-              }}
-            >
-              <h2
-                className={`${nasalization.className} text-4xl md:text-5xl font-bold relative`}
-                style={{ color: "hsl(var(--primary))" }}
-              >
-                About Me
-              </h2>
-            </motion.div>
-
             {/* Enhanced Paragraphs */}
             <motion.div
               className="space-y-6 leading-relaxed"
@@ -165,9 +112,9 @@ export const About = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               {selfData.about.map((paragraph, index) => (
-                <motion.p
+                <motion.div
                   key={index}
-                  className="text-xs"
+                  className="group cursor-text relative"
                   initial={{ opacity: 0, y: 15 }}
                   animate={
                     isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }
@@ -178,13 +125,63 @@ export const About = () => {
                     ease: "easeOut",
                   }}
                   whileHover={{
-                    x: 4,
-                    color: "hsl(var(--primary-foreground))",
-                    transition: { duration: 0.2 },
+                    scale: 1.08,
+                    y: -12,
+                    rotateX: 15,
+                    rotateY: 5,
+                    transition: { 
+                      duration: 0.5,
+                      type: "spring",
+                      stiffness: 150,
+                      damping: 12
+                    },
+                  }}
+                  style={{
+                    transformStyle: "preserve-3d",
+                    perspective: "2000px",
                   }}
                 >
-                  {paragraph}
-                </motion.p>
+                  <p className="text-base leading-relaxed" style={{ transformStyle: "preserve-3d" }}>
+                    {paragraph.split(' ').map((word, wordIndex) => (
+                      <motion.span
+                        key={wordIndex}
+                        className="inline-block transition-all duration-400 cursor-text relative"
+                        whileHover={{
+                          scale: 1.25,
+                          fontWeight: 800,
+                          rotateX: -25,
+                          rotateY: 15,
+                          rotateZ: 3,
+                          z: 40,
+                          textShadow: "0 10px 20px rgba(0,0,0,0.3)",
+                          transition: { 
+                            duration: 0.4,
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 20
+                          }
+                        }}
+                        style={{
+                          transformOrigin: "center bottom",
+                          transformStyle: "preserve-3d",
+                          marginRight: "0.25rem",
+                          backfaceVisibility: "hidden",
+                          willChange: "transform"
+                        }}
+                      >
+                        <span style={{
+                          display: "inline-block",
+                          background: "linear-gradient(135deg, currentColor 0%, currentColor 100%)",
+                          WebkitBackgroundClip: "text",
+                          backgroundClip: "text",
+                          position: "relative"
+                        }}>
+                          {word}
+                        </span>
+                      </motion.span>
+                    ))}
+                  </p>
+                </motion.div>
               ))}
             </motion.div>
 
@@ -239,6 +236,76 @@ export const About = () => {
                 </Link>
               </motion.div>
             </motion.div>
+          </motion.div>
+
+          {/* Right Half: Coding Stats */}
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: 60 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.4,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+          >
+            <div className="space-y-6">
+              {/* LeetCode Stats */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+              >
+                <h4 
+                  className="text-base font-semibold mb-3"
+                  style={{ color: "hsl(var(--primary))" }}
+                >
+                  LeetCode
+                </h4>
+                <Link
+                  href="https://leetcode.com/u/kartik411"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full"
+                >
+                  <div className="w-full cursor-pointer hover:opacity-80 transition-opacity">
+                    <img
+                      src="https://leetcard.jacoblin.cool/kartik411?theme=dark&font=Nunito"
+                      alt="LeetCode Stats"
+                      className="w-full rounded-lg"
+                    />
+                  </div>
+                </Link>
+              </motion.div>
+
+              {/* Codeforces Stats */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <h4 
+                  className="text-base font-semibold mb-3"
+                  style={{ color: "hsl(var(--primary))" }}
+                >
+                  Codeforces
+                </h4>
+                <Link
+                  href="https://codeforces.com/profile/kartik411"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full"
+                >
+                  <div className="w-full cursor-pointer hover:opacity-80 transition-opacity">
+                    <img
+                      src="https://codeforces-readme-stats.vercel.app/api/badge?username=kartik411"
+                      alt="Codeforces Stats"
+                      className="w-full rounded-lg"
+                    />
+                  </div>
+                </Link>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
