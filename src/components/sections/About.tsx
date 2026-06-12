@@ -109,7 +109,7 @@ export const About = () => {
               style={{ color: "hsl(var(--foreground) / 0.8)" }}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
               {selfData.about.map((paragraph, index) => (
                 <motion.div
