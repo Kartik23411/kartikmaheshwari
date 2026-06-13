@@ -1,5 +1,18 @@
 export const experienceData = [
   {
+    role: "Data Associate",
+    year: "April'26",
+    description: [
+      "Performed data annotation, collection, and research for AI/ML models, creating high-quality labeled datasets that enhanced model training and evaluation processes.",
+      "Collaborated with cross-functional teams to maintain data quality standards, analyze edge cases, and support the development of secure real-time communication systems",
+    ],
+    company: "Yal.ai",
+    technologies: [
+      "Data Annotation", "Python", "Sheets", "AI/ML", "Data Analysis"
+    ],
+  },
+
+  {
     role: "Summer Intern",
     year: "Jun'25 - Jul'25",
     description: [
