@@ -1,5 +1,26 @@
 export const projectsData = [
   {
+    name: "UrbanPulse",
+    description:
+      "A self sustainable IoT based pavement system with edge processing capabilities and cloud telemetry for realtime traffic analysis and congestion management for smart cities. (Under Patenting Process)",
+    demo: "https://www.youtube.com/watch?v=6g1J0k5X8xM",
+    tech: ["IoT", "Embedded Programming", "Edge Computing", "C#"],
+  },
+  {
+    name: "Recruitment System",
+    description:
+      "A production-grade backend platform using Node.js, Redis, Nginx, and AWS, reducing redundant database and API requests by up to 60% through intelligent caching and performance optimization.",
+    demo: "https://iicrtu.page",
+    tech: ["Node.js", "Redis", "Nginx", "AWS", "Cloudflare", "React.js"],
+  },
+  {
+    name: "Netsense",
+    description:
+      "A real-time network security analyzer that captures and inspects packet traffic to detect threats such as ARP and DNS spoofing, with an ML-powered intrusion detection pipeline achieving sub-150ms threat classification.",
+    github_link: "https://github.com/kartik23411/mydesk",
+    tech: ["Python", "Scapy", "SQLite", "Wireshark", "ML", "scikit-learn"],
+  },
+  {
     name: "MyDesk",
     description:
       "A cross-platform remote-access app that lets users securely view, control, and share their PC screen over the internet. It uses unique device IDs, PIN-based authentication, and P2P connections for fast, reliable access.",

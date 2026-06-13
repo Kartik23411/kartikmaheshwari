@@ -12,7 +12,7 @@ interface ProjectCardProps {
   index: number;
   title: string;
   desc: string;
-  github: string;
+  github?: string;
   demo?: string;
   tech: string[];
 }
@@ -60,32 +60,13 @@ export const ProjectCard: FC<ProjectCardProps> = ({
       className="group h-full"
     >
       <Card
-        className="relative overflow-hidden backdrop-blur-xl border transition-all duration-500 h-full flex flex-col shadow-xl hover:shadow-2xl group-hover:shadow-luxury-hover-glow/30 rounded-2xl"
+        className="relative overflow-hidden backdrop-blur-xl border transition-all duration-500 h-full flex flex-col shadow-xl hover:shadow-2xl rounded-2xl"
         style={{
           background: "hsl(var(--glass-bg))",
           borderColor: "hsl(var(--glass-border))",
           borderRadius: "1rem",
         }}
       >
-        {/* Glass shimmer effect */}
-        <motion.div
-          className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-700"
-          style={{ background: "var(--shimmer)" }}
-          initial={{ x: "-100%" }}
-          whileHover={{ x: "200%" }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-        />
-
-        {/* Glowing border effect */}
-        <motion.div
-          className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          style={{
-            background:
-              "linear-gradient(45deg, hsl(var(--primary) / 0.2), hsl(var(--secondary) / 0.2), hsl(var(--accent) / 0.2))",
-            filter: "blur(1px)",
-          }}
-        />
-
         <div className="relative z-10 p-4 flex flex-col flex-grow">
           {/* Card Header Accent */}
           <motion.h3
@@ -138,7 +119,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
                   style={{
                     borderColor: "hsl(var(--primary) / 0.3)",
                     color: "hsl(var(--foreground) / 0.9)",
-                    backgroundColor: "hsl(var(--primary) / 0.1)",
+                    backgroundColor: "hsl(var(--glass-bg-light))",
                     borderRadius: "0.5rem",
                   }}
                 >
@@ -155,38 +136,22 @@ export const ProjectCard: FC<ProjectCardProps> = ({
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: index * 0.1 + 0.6 }}
           >
-            <motion.div
-              className="flex-1"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full transition-all duration-300 hover:shadow-lg font-mono text-xs"
-                style={{
-                  backgroundColor: "hsl(var(--glass-bg-light))",
-                  borderColor: "hsl(var(--glass-border))",
-                  color: "hsl(var(--foreground))",
-                  backdropFilter: "blur(8px)",
-                }}
-                asChild
-              >
-                <a href={github} target="_blank" rel="noopener noreferrer">
-                  <FaGithub className="w-4 h-4 mr-2" />
-                  Code
-                </a>
-              </Button>
-            </motion.div>
-            {demo && (
+            {demo ? (
               <motion.div
                 className="flex-1"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <Button
+                  variant="outline"
                   size="sm"
-                  className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 transition-all duration-300 hover:shadow-lg font-mono text-xs"
+                  className="w-full transition-all duration-300 hover:shadow-lg font-mono text-xs"
+                  style={{
+                    backgroundColor: "hsl(var(--glass-bg-light))",
+                    borderColor: "hsl(var(--glass-border))",
+                    color: "hsl(var(--foreground))",
+                    backdropFilter: "blur(8px)",
+                  }}
                   asChild
                 >
                   <Link href={demo} target="_blank" rel="noopener noreferrer">
@@ -195,7 +160,31 @@ export const ProjectCard: FC<ProjectCardProps> = ({
                   </Link>
                 </Button>
               </motion.div>
-            )}
+            ) : github ? (
+              <motion.div
+                className="flex-1"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full transition-all duration-300 hover:shadow-lg font-mono text-xs"
+                  style={{
+                    backgroundColor: "hsl(var(--glass-bg-light))",
+                    borderColor: "hsl(var(--glass-border))",
+                    color: "hsl(var(--foreground))",
+                    backdropFilter: "blur(8px)",
+                  }}
+                  asChild
+                >
+                  <a href={github} target="_blank" rel="noopener noreferrer">
+                    <FaGithub className="w-4 h-4 mr-2" />
+                    Code
+                  </a>
+                </Button>
+              </motion.div>
+            ) : null}
           </motion.div>
         </div>
       </Card>
