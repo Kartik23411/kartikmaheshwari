@@ -1,24 +1,18 @@
 import React from "react";
 
 import {
-  FaCss3,
   FaGitAlt,
   FaGithub,
-  FaHtml5,
   FaJava,
   FaLaptopCode,
   FaMobile,
   FaPython,
   FaReact,
   FaGaugeHigh,
-  FaTruckMoving,
-  FaWheelchair,
   FaBookOpen,
   FaCodeBranch,
   FaRobot,
-  FaBootstrap,
   FaSearchengin,
-  FaSquareJs,
   FaAndroid,
   FaLinux,
   FaNetworkWired,
@@ -26,17 +20,10 @@ import {
 } from "react-icons/fa6";
 
 import {
-  SiExpress,
   SiFirebase,
-  SiFramer,
   SiMongodb,
   SiMysql,
-  SiNetlify,
-  SiNextdotjs,
-  SiPostman,
-  SiReplit,
   SiTailwindcss,
-  SiTypescript,
   SiVercel,
   SiKotlin,
   SiSupabase,
@@ -45,7 +32,6 @@ import {
   SiScikitlearn,
   SiNodedotjs,
   SiJavascript,
-  SiC,
   SiCplusplus,
   SiCanva,
   SiFigma,
@@ -53,8 +39,6 @@ import {
 
 import { GiBrain } from "react-icons/gi";
 import { MdApi } from "react-icons/md";
-import { TbBrandCpp } from "react-icons/tb";
-import { GrOracle } from "react-icons/gr";
 
 interface LogoProps {
   title: string;

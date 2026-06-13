@@ -10,6 +10,16 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "leetcard.jacoblin.cool",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "codeforces-readme-stats.vercel.app",
+        pathname: "/**",
+      },
     ],
   },
 

@@ -269,10 +269,12 @@ export const About = () => {
                   className="block w-full"
                 >
                   <div className="w-full cursor-pointer hover:opacity-80 transition-opacity">
-                    <img
+                    <Image
                       src="https://leetcard.jacoblin.cool/kartik411?theme=dark&font=Nunito"
                       alt="LeetCode Stats"
-                      className="w-full rounded-lg"
+                      width={1200}
+                      height={500}
+                      className="w-full h-auto rounded-lg"
                     />
                   </div>
                 </Link>
@@ -297,10 +299,12 @@ export const About = () => {
                   className="block w-full"
                 >
                   <div className="w-full cursor-pointer hover:opacity-80 transition-opacity">
-                    <img
+                    <Image
                       src="https://codeforces-readme-stats.vercel.app/api/badge?username=kartik411"
                       alt="Codeforces Stats"
-                      className="w-full rounded-lg"
+                      width={1200}
+                      height={200}
+                      className="w-full h-auto rounded-lg"
                     />
                   </div>
                 </Link>

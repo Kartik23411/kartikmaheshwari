@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion, px, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { selfData } from "@/constant";
 
-import { quentine, mono, felipa } from "@/app/fonts";
+import { mono, felipa } from "@/app/fonts";
 
 const TypingText = ({ text }: { text: string | undefined }) => {
   const [displayedText, setDisplayedText] = useState("");
@@ -67,8 +67,7 @@ export const Hero = () => {
     amount: 0.1,
   });
 
-  const containerRef = useRef<HTMLDivElement>(null);
-    const canvasRef = useRef<HTMLCanvasElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   
     useEffect(() => {
       const canvas = canvasRef.current;
