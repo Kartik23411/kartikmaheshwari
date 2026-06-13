@@ -238,9 +238,9 @@ export const About = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Half: Coding Stats */}
+          {/* Right Half: Profile Card */}
           <motion.div
-            className="space-y-6"
+            className="space-y-6 w-full max-w-[380px] md:max-w-[420px] mx-auto md:mx-0"
             initial={{ opacity: 0, x: 60 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }}
             transition={{
@@ -249,67 +249,21 @@ export const About = () => {
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
           >
-            <div className="space-y-6">
-              {/* LeetCode Stats */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-              >
-                <h4 
-                  className="text-base font-semibold mb-3"
-                  style={{ color: "hsl(var(--primary))" }}
-                >
-                  LeetCode
-                </h4>
-                <Link
-                  href="https://leetcode.com/u/kartik411"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full"
-                >
-                  <div className="w-full cursor-pointer hover:opacity-80 transition-opacity">
-                    <Image
-                      src="https://leetcard.jacoblin.cool/kartik411?theme=dark&font=Nunito"
-                      alt="LeetCode Stats"
-                      width={1200}
-                      height={500}
-                      className="w-full h-auto rounded-lg"
-                    />
-                  </div>
-                </Link>
-              </motion.div>
-
-              {/* Codeforces Stats */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              >
-                <h4 
-                  className="text-base font-semibold mb-3"
-                  style={{ color: "hsl(var(--primary))" }}
-                >
-                  Codeforces
-                </h4>
-                <Link
-                  href="https://codeforces.com/profile/kartik411"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full"
-                >
-                  <div className="w-full cursor-pointer hover:opacity-80 transition-opacity">
-                    <Image
-                      src="https://codeforces-readme-stats.vercel.app/api/badge?username=kartik411"
-                      alt="Codeforces Stats"
-                      width={1200}
-                      height={200}
-                      className="w-full h-auto rounded-lg"
-                    />
-                  </div>
-                </Link>
-              </motion.div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.98 }}
+              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.98 }}
+              transition={{ duration: 0.7, delay: 0.7, ease: "easeOut" }}
+              className="relative w-full overflow-hidden rounded-2xl bg-transparent"
+            >
+              <Image
+                src="/images/profileCard.png"
+                alt="Profile card"
+                width={1200}
+                height={1400}
+                className="w-full h-auto max-h-[520px] object-contain"
+                priority={false}
+              />
+            </motion.div>
           </motion.div>
         </div>
       </div>
