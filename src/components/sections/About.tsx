@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { nasalization } from "@/app/fonts";
 import { selfData } from "@/constant";
 import Link from "next/link";
@@ -10,11 +10,33 @@ import { LuMapPinned } from "react-icons/lu";
 
 export const About = () => {
   const ref = useRef(null);
+  const [isFlipped, setIsFlipped] = useState(false);
   const isInView = useInView(ref, {
     once: false,
     margin: "-60px",
     amount: 0.2,
   });
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    let flipTimeout: ReturnType<typeof setTimeout>;
+
+    const scheduleFlip = () => {
+      const delay = 5000 + Math.random() * 5000;
+
+      flipTimeout = setTimeout(() => {
+        setIsFlipped((prev) => !prev);
+        scheduleFlip();
+      }, delay);
+    };
+
+    scheduleFlip();
+
+    return () => {
+      clearTimeout(flipTimeout);
+    };
+  }, [isInView]);
 
   return (
     <section
@@ -253,16 +275,44 @@ export const About = () => {
               initial={{ opacity: 0, y: 20, scale: 0.98 }}
               animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.98 }}
               transition={{ duration: 0.7, delay: 0.7, ease: "easeOut" }}
-              className="relative w-full overflow-hidden rounded-2xl bg-transparent"
+              className="relative w-full max-w-[420px] h-[520px] mx-auto"
+              style={{ perspective: "1200px" }}
             >
-              <Image
-                src="/images/profileCard.png"
-                alt="Profile card"
-                width={1200}
-                height={1400}
-                className="w-full h-auto max-h-[520px] object-contain"
-                priority={false}
-              />
+              <motion.div
+                className="relative h-full w-full"
+                style={{ transformStyle: "preserve-3d" }}
+                animate={{ rotateY: isFlipped ? 180 : 0 }}
+                transition={{ duration: 0.9, ease: "easeInOut" }}
+              >
+                <div
+                  className="absolute inset-0 overflow-hidden rounded-2xl"
+                  style={{ backfaceVisibility: "hidden" }}
+                >
+                  <Image
+                    src="/images/profileCard.png"
+                    alt="Profile card"
+                    fill
+                    className="object-contain"
+                    priority={false}
+                  />
+                </div>
+
+                <div
+                  className="absolute inset-0 overflow-hidden rounded-2xl"
+                  style={{
+                    backfaceVisibility: "hidden",
+                    transform: "rotateY(180deg)",
+                  }}
+                >
+                  <Image
+                    src="/images/devCard.png"
+                    alt="Developer card"
+                    fill
+                    className="object-contain"
+                    priority={false}
+                  />
+                </div>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>
